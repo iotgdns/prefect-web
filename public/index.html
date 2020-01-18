@@ -31,6 +31,7 @@
       </nav>
       <a class="btn btn-outline-primary" href="#">ASK</a>
     </div>
+    <!-- Main -->
     <main>
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <div class="card">
@@ -41,10 +42,10 @@
             </blockquote>
           </div>
         </div>
-        
       </div>
     </main>
-    <div class="loader pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <!-- Loader -->
+    <div class="loader pricing-header mx-auto ">
       <div class="wrapper">
         <div class="wrapper-cell">
           <div class="image"></div>
@@ -76,6 +77,47 @@
       </div>
     </div>
 
+    <!-- Footer -->
+    <div class="container text-center">
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="./img/logo.png" alt="" width="24" height="30">
+            <small class="d-block mb-3 text-muted">&copy; IOT CLUB 2019-2020</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <script>
@@ -83,7 +125,7 @@
       let index = ''
       start()
      
-      let data = {"index":2723}
+      let data = {"index":index}
       console.log(index)
       $.ajax({
         url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
@@ -93,8 +135,8 @@
         dataType: 'json',
         success: function(result) {
           $("main").css("visibility", "visible");
-          // $(".svglo").css("visibility", "hidden");
-          $('.name').html(result.data.name)
+          $(".loader").remove()
+          $('.name').html(result.data.name);
         },
         error: function() { alert('Something went wrong!'); }
       });
