@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "gdns-prefects",
+    "production": "prefects-gdns"
+  }
+}
