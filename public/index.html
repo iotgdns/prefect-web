@@ -13,6 +13,7 @@
     <script defer src="/__/firebase/7.7.0/firebase-app.js"></script>
     <script defer src="/__/firebase/7.7.0/firebase-database.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
     <link rel="stylesheet" href="./loading-bar.css">
 
     <style>
@@ -20,6 +21,7 @@
     </style>
   </head>
   <body>
+  
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <img src="./img/logo.png" alt="schoo_logo" style="width: 30px;height: 35px;margin-left: 10px;margin-right: 10px;">
       <div class="my-0 mr-md-auto font-weight-normal text-center"><h5>GDNS PREFECTS</h5></div>
@@ -31,51 +33,48 @@
       </nav>
       <a class="btn btn-outline-primary" href="#">ASK</a>
     </div>
+    <!-- Loader -->
+    <div class="loader">
+      <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
     <!-- Main -->
     <main>
-      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <div class="card">
-          <div class="card-body">
-            <blockquote class="blockquote">
-              <p class="name">name</p>
-              <footer class="card-blockquote">Footer<cite title="Source title">Source title</cite></footer>
-            </blockquote>
+      <div class="pricing-header mx-auto text-center m-4 p-2">
+        <div class="row p-1">
+          <div class="col-lg-4">
+            <div class="card">
+              <img src="" class="card-img-top avatar d-none d-lg-block" alt="avatar" width="50px">
+              <div class="card-body">
+                <h5 class="card-title name"></h5>
+                <p class="card-text position"></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between"><span>Grade</span> <span class="badge badge-secondary grade text-right"></span></li>
+                <li class="list-group-item d-flex justify-content-between"><span>Amount Due</span> <span class="badge badge-danger due text-right"></span></li>
+                
+              </ul>
+              <div class="card-body">
+                <!-- <a href="#" class="card-link">Card link</a> -->
+                <a href="#" class="card-link">EDIT</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 p-3">
+            <div class="card border-primary shadow-md">
+              <div class="card-body">
+                <h4 class="card-title">OFFICIAL PREFECT PORTAL</h4>
+                <p class="card-text">PREFECT DATA</p>
+              </div>
+            </div>
+            <br>
+            <div class="card border-danger shadow p-2">
+              <canvas id="attchart" width="250" height="250"></canvas>
+            </div>
           </div>
         </div>
+        
       </div>
     </main>
-    <!-- Loader -->
-    <div class="loader pricing-header mx-auto ">
-      <div class="wrapper">
-        <div class="wrapper-cell">
-          <div class="image"></div>
-          <div class="text">
-            <div class="text-line"> </div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-          </div>
-        </div>
-        <div class="wrapper-cell">
-          <div class="image"></div>
-          <div class="text">
-            <div class="text-line"> </div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-          </div>
-        </div>
-        <div class="wrapper-cell">
-          <div class="image"></div>
-          <div class="text">
-            <div class="text-line"> </div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-            <div class="text-line"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Footer -->
     <div class="container text-center">
@@ -120,13 +119,17 @@
     
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script>
     $(document).ready(function () {
-      let index = ''
-      start()
-     
-      let data = {"index":index}
-      console.log(index)
+      let key = prompt('Enter the Prefect Key : ')
+      let index = prompt('Enter your index number : ')
+      var ctx = $('#attchart');
+      getUserData(key,index,ctx)
+      
+    });
+    function getUserData(k,i,ctx) {
+      let data = {'key':k,'index':i}
       $.ajax({
         url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
         data: data,
@@ -136,32 +139,35 @@
         success: function(result) {
           $("main").css("visibility", "visible");
           $(".loader").remove()
-          $('.name').html(result.data.name);
-        },
-        error: function() { alert('Something went wrong!'); }
-      });
-    });
+          let data = result.data;
+          $(".avatar").attr("src","https://avatars.dicebear.com/v2/"+data.gender+"/"+data.nick+".svg");
+          Object.keys(data).forEach(function(key) {
+            console.log(key, data[key]);
+            $('.'+key).html(data[key]);
+          });
 
-    function start() { 
-      let key = prompt('Enter the Prefect Key : ')
-      index = prompt('Enter your index number : ')
-      $.ajax({
-        url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
-        data: {},
-        type: 'POST',
-        crossDomain: true,
-        dataType: 'json',
-        success: function(result) { 
-          if (key == result.p) {
-            return true;
-          } else {
-            alert('Authentication Faild')
-            start()
-          }
+          d = {
+            datasets: [{
+                data: data.duty,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(75, 192, 192)'
+                ],
+                label: 'DUTY ATTENDANCE'
+            }],
+            labels: [
+              'NO DUTY',
+              'DUTY'                
+            ],
+            
+          };
+          var attcht = new Chart(ctx, {
+              type: 'pie',
+              data: d
+          });
         },
         error: function() { alert('Something went wrong!'); }
       });
     }
-
   </script>
 </html>

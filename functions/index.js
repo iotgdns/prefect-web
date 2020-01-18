@@ -11,22 +11,20 @@ exports.helloWorld = functions.https.onRequest((req, res) => {
      }
     
     const db = admin.firestore();
-    let data = {}
-    console.log(req.body.index)
-    if (req.body.index) {
+    if (req.body.index && req.body.key == 1234) {
         const prefect = db.collection('prefects').doc(req.body.index);
         prefect.get()
         .then(doc => {
           if (!doc.exists) {
-            console.log('No such document!');
+            res.send({"data":"e"});
           } else {
             console.log('Document data:', doc.data());
-            res.send({p:1234,"data":doc.data()});
+            res.send({"data":doc.data()});
           }
         })
         .catch(err => {
           console.log('Error getting document', err);
-          res.send({p:1234,"data":err});
+          res.send({"data":err});
         });
       
     }
