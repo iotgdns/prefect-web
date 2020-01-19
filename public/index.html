@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -9,165 +10,367 @@
 
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.4/examples/pricing/pricing.css" rel="stylesheet">
-
-    <script defer src="/__/firebase/7.7.0/firebase-app.js"></script>
-    <script defer src="/__/firebase/7.7.0/firebase-database.js"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
     <link rel="stylesheet" href="./loading-bar.css">
 
     <style>
-    main { visibility:hidden; }
+        main {
+            visibility: hidden;
+        }
     </style>
-  </head>
-  <body>
-  
+</head>
+
+<body>
+
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <img src="./img/logo.png" alt="schoo_logo" style="width: 30px;height: 35px;margin-left: 10px;margin-right: 10px;">
-      <div class="my-0 mr-md-auto font-weight-normal text-center"><h5>GDNS PREFECTS</h5></div>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">News</a>
-        <a class="p-2 text-dark" href="#">Updates</a>
-        <a class="p-2 text-dark" href="#">Prefects</a>
-        <a class="p-2 text-dark" href="#">Profile</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">ASK</a>
+        <img src="./img/logo.png" alt="schoo_logo" style="width: 30px;height: 35px;margin-left: 10px;margin-right: 10px;">
+        <div class="my-0 mr-md-auto font-weight-normal text-center">
+            <h5>GDNS PREFECTS</h5></div>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="#">News</a>
+            <a class="p-2 text-dark" href="#">Updates</a>
+            <a class="p-2 text-dark" href="#">Prefects</a>
+            <a class="p-2 text-dark" href="#">Profile</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="#">ASK</a>
     </div>
     <!-- Loader -->
     <div class="loader">
-      <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        Loading..Please Wait
+        <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
     <!-- Main -->
     <main>
-      <div class="pricing-header mx-auto text-center m-4 p-2">
-        <div class="row p-1">
-          <div class="col-lg-4">
-            <div class="card">
-              <img src="" class="card-img-top avatar d-none d-lg-block" alt="avatar" width="50px">
-              <div class="card-body">
-                <h5 class="card-title name"></h5>
-                <p class="card-text position"></p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between"><span>Grade</span> <span class="badge badge-secondary grade text-right"></span></li>
-                <li class="list-group-item d-flex justify-content-between"><span>Amount Due</span> <span class="badge badge-danger due text-right"></span></li>
-                
-              </ul>
-              <div class="card-body">
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <a href="#" class="card-link">EDIT</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 p-3">
-            <div class="card border-primary shadow-md">
-              <div class="card-body">
-                <h4 class="card-title">OFFICIAL PREFECT PORTAL</h4>
-                <p class="card-text">PREFECT DATA</p>
-              </div>
-            </div>
-            <br>
-            <div class="card border-danger shadow p-2">
-              <canvas id="attchart" width="250" height="250"></canvas>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </main>
+        <div class="pricing-header mx-auto text-center m-4 p-2">
+            <div class="row p-1">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="" class="card-img-top avatar d-none d-lg-block" alt="avatar" width="50px">
+                        <div class="card-body">
+                            <h5 class="card-title name"></h5>
+                            <p class="card-text position"></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between"><span>Grade</span> <span class="badge badge-secondary grade text-right"></span></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Amount Due</span> <span class="badge badge-danger due text-right"></span></li>
 
+                        </ul>
+                        <div class="card-body">
+                            <!-- <a href="#" class="card-link">Card link</a> -->
+                            <a href="#" class="card-link">EDIT</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-8 p-3">
+                    <div class="card border-primary shadow-md">
+                        <div class="card-body">
+                            <h4 class="card-title">OFFICIAL PREFECT PORTAL</h4>
+                            <p class="card-text">PREFECT DATA</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card border-danger shadow p-2">
+                        <canvas id="attchart" width="250" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
     <!-- Footer -->
     <div class="container text-center">
-      <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-12 col-md">
-            <img class="mb-2" src="./img/logo.png" alt="" width="24" height="30">
-            <small class="d-block mb-3 text-muted">&copy; IOT CLUB 2019-2020</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-              <li><a class="text-muted" href="#">Team feature</a></li>
-              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-              <li><a class="text-muted" href="#">Another one</a></li>
-              <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-              <li><a class="text-muted" href="#">Another resource</a></li>
-              <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="./img/logo.png" alt="" width="24" height="30">
+                    <small class="d-block mb-3 text-muted">&copy; IOT CLUB 2019-2020</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
-    
-  </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      let key = prompt('Enter the Prefect Key : ')
-      let index = prompt('Enter your index number : ')
-      var ctx = $('#attchart');
-      getUserData(key,index,ctx)
-      
-    });
-    function getUserData(k,i,ctx) {
-      let data = {'key':k,'index':i}
-      $.ajax({
-        url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
-        data: data,
-        type: 'POST',
-        crossDomain: true,
-        dataType: 'json',
-        success: function(result) {
-          $("main").css("visibility", "visible");
-          $(".loader").remove()
-          let data = result.data;
-          $(".avatar").attr("src","https://avatars.dicebear.com/v2/"+data.gender+"/"+data.nick+".svg");
-          Object.keys(data).forEach(function(key) {
-            console.log(key, data[key]);
-            $('.'+key).html(data[key]);
-          });
 
-          d = {
-            datasets: [{
-                data: data.duty,
-                backgroundColor: [
-                  'rgb(255, 99, 132)',
-                  'rgb(75, 192, 192)'
-                ],
-                label: 'DUTY ATTENDANCE'
-            }],
-            labels: [
-              'NO DUTY',
-              'DUTY'                
-            ],
-            
-          };
-          var attcht = new Chart(ctx, {
-              type: 'pie',
-              data: d
-          });
-        },
-        error: function() { alert('Something went wrong!'); }
-      });
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script>
+    $(document).ready(function() {
+        let key = prompt('Enter the Prefect Key : ');
+        let index = prompt('Enter your index number : ');
+        var ctx = $('#attchart');
+        getUserData(key, index, ctx);
+        $('#rp').click(function(e) {
+            e.preventDefault();
+            requestPermission();
+        });
+        $('#dt').click(function(e) {
+            e.preventDefault();
+            deleteToken();
+        });
+    });
+
+    function getUserData(k, i, ctx) {
+        let data = {
+            'key': k,
+            'index': i
+        };
+        $.ajax({
+            url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
+            data: data,
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            success: function(result) {
+                $("main").css("visibility", "visible");
+                $(".loader").remove();
+                let data = result.data;
+                $(".avatar").attr("src", "https://avatars.dicebear.com/v2/" + data.gender + "/" + data.nick + ".svg");
+                Object.keys(data).forEach(function(key) {
+                    $('.' + key).html(data[key]);
+                });
+                d = {
+                    datasets: [{
+                        data: data.duty,
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(75, 192, 192)'
+                        ],
+                        label: 'DUTY ATTENDANCE'
+                    }],
+                    labels: [
+                        'NO DUTY',
+                        'DUTY'
+                    ],
+
+                };
+                var attcht = new Chart(ctx, {
+                    type: 'pie',
+                    data: d
+                });
+            },
+            error: function() {
+                alert('Something went wrong!');
+            }
+        });
     }
-  </script>
+</script>
+<!-- 
+  <script>
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey('BGt-clsebIqjVoWIIx6rXV8qzA3TD9JUq2u1BGkelVt2HKUsovEOk_1ZfWHma4S5N2ebn6Wr-Lxm8hySYQzY9KM');
+    const tokenDivId = 'token_div';
+    const permissionDivId = 'permission_div';
+
+    messaging.onTokenRefresh(() => {
+      messaging.getToken().then((refreshedToken) => {
+        console.log('Token refreshed.');
+
+        setTokenSentToServer(false);
+        sendTokenToServer(refreshedToken);
+        resetUI();
+      }).catch((err) => {
+        console.log('Unable to retrieve refreshed token ', err);
+        showToken('Unable to retrieve refreshed token ', err);
+      });
+    });
+
+    // [START receive_message]
+    // Handle incoming messages. Called when:
+    // - a message is received while the app has focus
+    // - the user clicks on an app notification created by a service worker
+    //   `messaging.setBackgroundMessageHandler` handler.
+    messaging.onMessage((payload) => {
+      console.log('Message received. ', payload);
+      // [START_EXCLUDE]
+      // Update the UI to include the received message.
+      appendMessage(payload);
+      // [END_EXCLUDE]
+    });
+    // [END receive_message]
+
+    function resetUI() {
+      clearMessages();
+      showToken('loading...');
+      // [START get_token]
+      // Get Instance ID token. Initially this makes a network call, once retrieved
+      // subsequent calls to getToken will return from cache.
+      messaging.getToken().then((currentToken) => {
+        if (currentToken) {
+          sendTokenToServer(currentToken);
+          updateUIForPushEnabled(currentToken);
+        } else {
+          // Show permission request.
+          console.log('No Instance ID token available. Request permission to generate one.');
+          // Show permission UI.
+          updateUIForPushPermissionRequired();
+          setTokenSentToServer(false);
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+        showToken('Error retrieving Instance ID token. ', err);
+        setTokenSentToServer(false);
+      });
+      // [END get_token]
+    }
+
+    function showToken(currentToken) {
+      // Show token in console and UI.
+      const tokenElement = document.querySelector('#token');
+      tokenElement.textContent = currentToken;
+    }
+
+    // Send the Instance ID token your application server, so that it can:
+    // - send messages back to this app
+    // - subscribe/unsubscribe the token from topics
+    function sendTokenToServer(currentToken) {
+      if (!isTokenSentToServer()) {
+        console.log('Sending token to server...');
+        // TODO(developer): Send the current token to your server.
+        setTokenSentToServer(true);
+      } else {
+        console.log('Token already sent to server so won\'t send it again ' +
+            'unless it changes');
+      }
+
+    }
+
+    function isTokenSentToServer() {
+      return window.localStorage.getItem('sentToServer') === '1';
+    }
+
+    function setTokenSentToServer(sent) {
+      window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+    }
+
+    function showHideDiv(divId, show) {
+      const div = document.querySelector('#' + divId);
+      if (show) {
+        div.style = 'display: visible';
+      } else {
+        div.style = 'display: none';
+      }
+    }
+
+    function requestPermission() {
+      console.log('Requesting permission...');
+      // [START request_permission]
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          console.log('Notification permission granted.');
+          // TODO(developer): Retrieve an Instance ID token for use with FCM.
+          // [START_EXCLUDE]
+          // In many cases once an app has been granted notification permission,
+          // it should update its UI reflecting this.
+          resetUI();
+          // [END_EXCLUDE]
+        } else {
+          console.log('Unable to get permission to notify.');
+        }
+      });
+      // [END request_permission]
+    }
+
+    function deleteToken() {
+      // Delete Instance ID token.
+      // [START delete_token]
+      messaging.getToken().then((currentToken) => {
+        messaging.deleteToken(currentToken).then(() => {
+          console.log('Token deleted.');
+          setTokenSentToServer(false);
+          // [START_EXCLUDE]
+          // Once token is deleted update UI.
+          resetUI();
+          // [END_EXCLUDE]
+        }).catch((err) => {
+          console.log('Unable to delete token. ', err);
+        });
+        // [END delete_token]
+      }).catch((err) => {
+        console.log('Error retrieving Instance ID token. ', err);
+        showToken('Error retrieving Instance ID token. ', err);
+      });
+
+    }
+
+    // Add a message to the messages element.
+    function appendMessage(payload) {
+      const messagesElement = document.querySelector('#messages');
+      const dataHeaderELement = document.createElement('h5');
+      const dataElement = document.createElement('pre');
+      dataElement.style = 'overflow-x:hidden;';
+      dataHeaderELement.textContent = 'Received message:';
+      dataElement.textContent = JSON.stringify(payload, null, 2);
+      messagesElement.appendChild(dataHeaderELement);
+      messagesElement.appendChild(dataElement);
+    }
+
+    // Clear the messages element of all children.
+    function clearMessages() {
+      const messagesElement = document.querySelector('#messages');
+      while (messagesElement.hasChildNodes()) {
+        messagesElement.removeChild(messagesElement.lastChild);
+      }
+    }
+
+    function updateUIForPushEnabled(currentToken) {
+      showHideDiv(tokenDivId, true);
+      showHideDiv(permissionDivId, false);
+      showToken(currentToken);
+    }
+
+    function updateUIForPushPermissionRequired() {
+      showHideDiv(tokenDivId, false);
+      showHideDiv(permissionDivId, true);
+    }
+
+    resetUI();
+  </script> -->
+
 </html>

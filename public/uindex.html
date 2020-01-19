@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mickfrost Solutions">
+    <title>Prefects - Gamini Dissanayake National School</title>
+
+    <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.4/examples/pricing/pricing.css" rel="stylesheet">
+
+    <script defer src="/__/firebase/7.7.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.7.0/firebase-database.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="./loading-bar.css">
+
+    <style>
+    main { visibility:hidden; }
+    </style>
+  </head>
+  <body>
+  
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <img src="./img/logo.png" alt="schoo_logo" style="width: 30px;height: 35px;margin-left: 10px;margin-right: 10px;">
+      <div class="my-0 mr-md-auto font-weight-normal text-center"><h5>GDNS PREFECTS</h5></div>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">News</a>
+        <a class="p-2 text-dark" href="#">Updates</a>
+        <a class="p-2 text-dark" href="#">Prefects</a>
+        <a class="p-2 text-dark" href="#">Profile</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="#">ASK</a>
+    </div>
+    <!-- Loader -->
+    <div class="loader">
+      Loading..Please Wait
+      <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Main -->
+    <main>
+      <div class="pricing-header mx-auto text-center m-4 p-2">
+        <div class="row p-1">
+          <div class="col-lg-4">
+            <div class="card">
+              <img src="" class="card-img-top avatar d-none d-lg-block" alt="avatar" width="50px">
+              <div class="card-body">
+                <h5 class="card-title name"></h5>
+                <p class="card-text position"></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between"><span>Grade</span> <span class="badge badge-secondary grade text-right"></span></li>
+                <li class="list-group-item d-flex justify-content-between"><span>Amount Due</span> <span class="badge badge-danger due text-right"></span></li>
+                
+              </ul>
+              <div class="card-body">
+                <!-- <a href="#" class="card-link">Card link</a> -->
+                <a href="#" class="card-link">EDIT</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 p-3">
+            <div class="card border-primary shadow-md">
+              <div class="card-body">
+                <h4 class="card-title">OFFICIAL PREFECT PORTAL</h4>
+                <p class="card-text">PREFECT DATA</p>
+              </div>
+            </div>
+            <br>
+            <div class="card border-danger shadow p-2">
+              <canvas id="attchart" width="250" height="250"></canvas>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="container text-center">
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="./img/logo.png" alt="" width="24" height="30">
+            <small class="d-block mb-3 text-muted">&copy; IOT CLUB 2019-2020</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let key = prompt('Enter the Prefect Key : ');
+      let index = prompt('Enter your index number : ');
+      var ctx = $('#attchart');
+      getUserData(key,index,ctx)
+      
+    });
+    function getUserData(k,i,ctx) {
+      let data = {'key':k,'index':i};
+      $.ajax({
+        url: 'https://us-central1-prefects-gdns.cloudfunctions.net/helloWorld',
+        data: data,
+        type: 'POST',
+        crossDomain: true,
+        dataType: 'json',
+        success: function(result) {
+          $("main").css("visibility", "visible");
+          $(".loader").remove();
+          let data = result.data;
+          $(".avatar").attr("src","https://avatars.dicebear.com/v2/"+data.gender+"/"+data.nick+".svg");
+          Object.keys(data).forEach(function(key) {
+            $('.'+key).html(data[key]);
+          });
+          d = {
+            datasets: [{
+                data: data.duty,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(75, 192, 192)'
+                ],
+                label: 'DUTY ATTENDANCE'
+            }],
+            labels: [
+              'NO DUTY',
+              'DUTY'                
+            ],
+            
+          };
+          var attcht = new Chart(ctx, {
+              type: 'pie',
+              data: d
+          });
+        },
+        error: function() { alert('Something went wrong!'); }
+      });
+    }
+  </script>
+</html>
