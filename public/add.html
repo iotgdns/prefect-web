@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="Mickfrost" />
+    <title>Add Data - Prefects - GDNS</title>
+
+    <link
+      href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <meta name="theme-color" content="#563d7c" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link
+      href="https://getbootstrap.com/docs/4.4/examples/checkout/form-validation.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <img
+          class="d-block mx-auto mb-4"
+          src="./img/logo.png"
+          alt=""
+          width="72"
+          height="72"
+        />
+        <h2>Prefect Data Form</h2>
+        <p class="lead">
+          Add prefect data to the database through the following form
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Additional Data</span>
+            <span class="badge badge-secondary badge-pill">3</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0 mb-2">Index Number</h6>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="index"
+                  id="index"
+                  placeholder="School Index Number"
+                />
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Profile Avatar</h6>
+                <small class="text-muted">Selected based on the nickname</small>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0 mb-2">Experience</h6>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="xp"
+                  id="xp"
+                  placeholder="in Prefect Years"
+                />
+              </div>
+            </li>
+
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0 mb-2">Cadet?</h6>
+                <select class="custom-select d-block w-100" id="cadet" required>
+                  <option value="">Choose...</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>User ID</span>
+              <strong>#qwesdc</strong>
+            </li>
+          </ul>
+
+          <form class="card p-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Prefect Code"
+              />
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Auth Me</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Prefect Data</h4>
+          <hr class="mb-4" />
+
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                placeholder=""
+                value=""
+                required
+              />
+              <div class="invalid-feedback">
+                Valid name is required.
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="initialsName">Name with intials</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="initialName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="nickname">Nickname</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nickname"
+                    placeholder="nickname"
+                    required
+                  />
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Your nickname is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email"
+                  >Email <span class="text-muted">(Optional)</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="mobilephone">Telephone Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mobilephone"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid name is required.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                placeholder="1234 Main St"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter your address.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dob">Date of Birth</label>
+              <input
+                type="date"
+                class="form-control"
+                id="dob"
+                placeholder=""
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter your dob.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="postion">Postion</label>
+                <select
+                  class="custom-select d-block w-100"
+                  id="postion"
+                  required
+                >
+                  <option value="">Choose...</option>
+                  <option>Sports Captain</option>
+                  <option>Deputy Sports Captian</option>
+                  <option>Junior Prefect</option>
+                  <option>Senior Prefect</option>
+                  <option>Deputy Head Prefect </option>
+                  <option>Head Prefect</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid postion
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="gender">Gender</label>
+                <select
+                  class="custom-select d-block w-100"
+                  id="gender"
+                  required
+                >
+                  <option value="">Choose...</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid gender.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="grade">Grade</label>
+                <select class="custom-select d-block w-100" id="grade" required>
+                  <option value="">Choose...</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>AOL</option>
+                  <option>12</option>
+                  <option>13</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid grade.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="class">Class</label>
+                <select class="custom-select d-block w-100" id="class" required>
+                  <option value="">Choose...</option>
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                  <option>S</option>
+                  <option>T</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid class.
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-4" />
+            <a class="btn btn-primary btn-lg btn-block" id="submit">
+              Upload Data
+            </a>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2019-2020 Iot Club | Mickfrost</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="/docs/4.4/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/form-validation.js"></script>
+    <script src="./js/form-sub.js"></script>
+    <script>
+       $("#submit").click(function () { 
+        $.ajax({
+            url: "https://us-central1-prefects-gdns.cloudfunctions.net/put",
+            data: formData,
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            success: function (response) {
+                alert(response)
+            }
+        });
+      })
+    </script>
+  </body>
+</html>
